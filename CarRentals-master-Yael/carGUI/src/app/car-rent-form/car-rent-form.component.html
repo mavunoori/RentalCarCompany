@@ -1,0 +1,57 @@
+
+<div class="container">
+  
+<h1> Thanks for choosing us! </h1>
+<h2> let's continue phase 2/3</h2>
+
+
+<h5>Start Date: {{form.formData.pickUpDate}}</h5>
+<h5>End Date: {{form.formData.returnDate}} </h5>
+<h5>Pick Up Location {{form.formData.branch}} </h5>
+</div>
+
+<div *ngFor="let car of cars "  class="container">
+  <!--&& car.branch.id == form.formData.branch.id-->
+
+<div *ngIf="car.isAvailable && car.branchObject.BranchName == form.formData.branch">
+<div class="container">
+
+<div class="card" style="width: 18rem;" >
+    <img class="card-img-top rounded mx-auto d-block" height="200" width="300"
+        src="data:image/png;base64,{{car.image}}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title"> </h5>
+    </div>
+
+   
+
+    <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item">Car Cost: {{car?.carTypeObject.dailyCost}} </li>
+        <li class="list-group-item">Car Daily Penalty: {{car?.carTypeObject.dailyPenalty}} </li>
+
+
+        <li class="list-group-item">Car Model: {{car?.carTypeObject.model }} </li>
+        <li class="list-group-item">Car Manufacturer: {{car?.carTypeObject.manufacturer}}</li>
+        <li class="list-group-item">Car Gear Type: {{car?.carTypeObject.gearType}}</li>
+        <li class="list-group-item">Car Manufacturing
+            Year:{{car?.carTypeObject.manufacturingYear  | date: short  }}</li>
+        <li class="list-group-item">Car Region: {{car?.branchObject.BranchName}}</li>
+
+        <li class="list-group-item">Car daily cost: {{car?.carTypeObject.dailyCost}} </li>
+        <li class="list-group-item">Car Mileage: {{car?.mileage}} </li>
+      
+        <li class="list-group-item">Rent Days {{numberOfRentDays}} </li>
+        <button (click)="GoToRentCarPage(car)" >Choose Model</button>
+      
+
+    </ul>
+</div>
+
+    <br>
+    <br>
+</div>
+</div>
+
+
+
+
